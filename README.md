@@ -1,17 +1,21 @@
 # AppliAzimut
 
-com.android.tools.build:gradle:2.2.3
+Pour installer depuis Android Studio
 
-compileSdkVersion 23
-buildToolsVersion "23.0.3"
+File > New > Project from Version Control > Github
+Normalement il doit pas y avoir de problemes mais sinon verifié que vous avez bien toutes ces versions :
+    com.android.tools.build:gradle:2.2.3
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
     
-      minSdkVersion 19
-      targetSdkVersion 23
+    minSdkVersion 19
+    targetSdkVersion 23
       
-En cas d'erreur verifier que vous avez bien compile 'com.android.support:multidex:1.0.1' dans votre app gradle
+    En cas d'erreur verifier que vous avez bien compile 'com.android.support:multidex:1.0.1' dans votre app gradle
 
-Android Studio : 2.2.3
-Target : 4.4 KITKAT
+    Android Studio : 2.2.3
+    Target : 4.4 KITKAT
 
 
 Utilisation de l'app :
