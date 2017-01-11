@@ -4,6 +4,7 @@ Pour installer depuis Android Studio
 
 File > New > Project from Version Control > Github
 Normalement il doit pas y avoir de problemes mais sinon verifié que vous avez bien toutes ces versions :
+    
     com.android.tools.build:gradle:2.2.3
 
     compileSdkVersion 23
