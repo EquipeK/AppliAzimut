@@ -100,6 +100,7 @@ public class GeolocActivity extends AppCompatActivity {
         GeolocIntent.putExtra("email", email);
 
         startActivity(GeolocIntent);
+        overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
     }
 

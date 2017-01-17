@@ -194,6 +194,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             loginIntent.putExtra("email", email);
 
             startActivity(loginIntent);
+            overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
 
         }
     }
