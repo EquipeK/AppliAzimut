@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -90,7 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng user = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions()
                 .position(user));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng( latitude,longitude), 8.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user, 8.0f));
 
     }
 
@@ -105,21 +106,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
-
         }
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
+            //HttpHandler sh = new HttpHandler();
 
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url);
+            //String jsonStr = sh.makeServiceCall(url);
+            String jsonStr = "C COOL RAOUL";
 
             Log.e(TAG, "Response from url: " + jsonStr);
 
             if (jsonStr != null) {
                 try {
-                    JSONObject jsonObj = new JSONObject(jsonStr);
+                    JSONObject jsonObj1 = new JSONObject();
+
+                    try {
+                        jsonObj1.put("id", "1");
+                        jsonObj1.put("name", "Jean Michel Croquette and cie");
+                        jsonObj1.put("email", "jeanmimi@gmail.com");
+                        jsonObj1.put("lat", "48.3849");
+                        jsonObj1.put("lng", "-4.50096");
+                        jsonObj1.put("address", "Avenue Vauban");
+                        jsonObj1.put("cp", "29200");
+                        jsonObj1.put("city", "Brest");
+                        jsonObj1.put("created_at", "2016-12-19 12:11:15");
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    JSONObject jsonObj2 = new JSONObject();
+
+                    try {
+                        jsonObj2.put("id", "2");
+                        jsonObj2.put("name", "Yves");
+                        jsonObj2.put("email", "yves@gmail.com");
+                        jsonObj2.put("lat", "48.5677");
+                        jsonObj2.put("lng", "-3.95028");
+                        jsonObj2.put("address", "Avenue Vauban");
+                        jsonObj2.put("cp", "29410");
+                        jsonObj2.put("city", "Guiclan");
+                        jsonObj2.put("created_at", "2016-12-19 12:11:15");
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                    JSONArray jsonArray = new JSONArray();
+                    jsonArray.put(jsonObj1);
+                    jsonArray.put(jsonObj2);
+
+                    JSONObject jsonObj = new JSONObject();
+                    jsonObj.put("resellers", jsonArray);
+
 
                     // Getting JSON Array node
                     JSONArray resellers = jsonObj.getJSONArray("resellers");
